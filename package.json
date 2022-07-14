@@ -18,7 +18,7 @@
     "postinstall": "patch-package && electron-builder install-app-deps",
     "watch": "webpack --config ./webpack.renderer.js --mode development --watch --watch-poll",
     "publish": "electron-builder --win -p always",
-		"build:publish": "set GH_TOKEN=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 && react-scripts build && electron-builder --win --publish always"
+		"build:publish": "react-scripts build && electron-builder --win --publish always"
   },
   "engines": {
     "node": ">=14.0.0"
