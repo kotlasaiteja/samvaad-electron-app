@@ -18,6 +18,7 @@
     "postinstall": "patch-package && electron-builder install-app-deps",
     "watch": "webpack --config ./webpack.renderer.js --mode development --watch --watch-poll",
     "publish": "electron-builder --win -p always",
+    "build:prod": "react-scripts build && electron-builder --win",
 		"build:publish": "react-scripts build && electron-builder --win --publish always"
   },
   "engines": {
