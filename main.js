@@ -260,6 +260,8 @@ function createJitsiMeetWindow() {
         autoUpdater.checkForUpdatesAndNotify();
     }
 
+    autoUpdater.checkForUpdates();
+
     // Load the previous window state with fallback to defaults.
     const windowState = windowStateKeeper({
         defaultWidth: 800,
@@ -539,7 +541,3 @@ autoUpdater.on("update-downloaded", (_event, releaseNotes, releaseName) => {
         if (returnValue.response === 0) autoUpdater.quitAndInstall()
     })
 });
-
-app.on('ready', function()  {
-    autoUpdater.checkForUpdatesAndNotify();
-  });
