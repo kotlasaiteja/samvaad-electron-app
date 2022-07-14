@@ -7,7 +7,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/kotlasaiteja/samvaad-electron-app"
   },
   "scripts": {
     "start": "webpack --config ./webpack.main.js --mode development && concurrently \"npm:watch\" \"electron ./build/main.js\"",
@@ -17,7 +17,8 @@
     "dist": "npm run build && electron-builder",
     "postinstall": "patch-package && electron-builder install-app-deps",
     "watch": "webpack --config ./webpack.renderer.js --mode development --watch --watch-poll",
-    "publish": "electron-builder --win -p always"
+    "publish": "electron-builder --win -p always",
+		"build:publish": "set GH_TOKEN=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 && react-scripts build && electron-builder --win --publish always"
   },
   "engines": {
     "node": ">=14.0.0"
