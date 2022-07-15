@@ -260,7 +260,7 @@ function createJitsiMeetWindow() {
         autoUpdater.checkForUpdatesAndNotify();
     }
 
-    autoUpdater.checkForUpdatesAndNotify();
+    autoUpdater.checkForUpdates();
 
     // Load the previous window state with fallback to defaults.
     const windowState = windowStateKeeper({
