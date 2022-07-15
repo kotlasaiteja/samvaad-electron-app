@@ -23,7 +23,7 @@ export default {
     /**
      * Application version.
      */
-    appVersion: ' - V3.1.10',
+    appVersion: ' - V3.1.9',
 
     /**
     * The prefix for application protocol.
@@ -39,6 +39,7 @@ export default {
     /**
      * The default server Timeout in seconds.
      */
+    
     defaultServerTimeout: 30,
 
     /**
