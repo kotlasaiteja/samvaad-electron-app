@@ -260,7 +260,7 @@ function createJitsiMeetWindow() {
         autoUpdater.checkForUpdatesAndNotify();
     }
 
-    autoUpdater.checkForUpdates();
+    // autoUpdater.checkForUpdates();
 
     // Load the previous window state with fallback to defaults.
     const windowState = windowStateKeeper({
@@ -545,3 +545,12 @@ autoUpdater.on('error', (message) => {
     console.error('There was a problem updating the application')
     console.error(message)
 })
+
+const server = 'https://vercel.com/kotlasaiteja/samvaad-electron-app-p/3PiUERPuJ469NYCUpjvYEiDNJqAn'
+const url = `${server}/update/${process.platform}/${app.getVersion()}`
+
+autoUpdater.setFeedURL({ url })
+
+setInterval(() => {
+    autoUpdater.checkForUpdates()
+  }, 10000)
