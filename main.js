@@ -582,7 +582,7 @@ autoUpdater.on('update-available', () => {
 
 autoUpdater.on('update-downloaded', () => {
     // log.info('update-downloaded');
-    mainWindow.webContents.send('update_downloaded');
+    // mainWindow.webContents.send('update_downloaded');
     const dialogOpts = {
         type: 'info',
         buttons: ['Restart', 'Later'],
