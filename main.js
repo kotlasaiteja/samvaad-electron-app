@@ -9,6 +9,8 @@ const {
 const contextMenu = require('electron-context-menu');
 const debug = require('electron-debug');
 const isDev = require('electron-is-dev');
+const log = require('electron-log');
+
 const { autoUpdater } = require('electron-updater');
 const windowStateKeeper = require('electron-window-state');
 const {
