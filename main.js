@@ -4,7 +4,8 @@ const {
     BrowserWindow,
     Menu,
     app,
-    ipcMain
+    ipcMain,
+    dialog
 } = require('electron');
 const contextMenu = require('electron-context-menu');
 const debug = require('electron-debug');
@@ -567,21 +568,41 @@ ipcMain.on('ready-to-join', () => {
 autoUpdater.on('update-available', () => {
     log.info('update-available');
     mainWindow.webContents.send('update_available');
+    const dialogOpts = {
+        type: 'info',
+        buttons: ['Ok'],
+        title: 'Application Update',
+        message: process.platform === 'win32' ? releaseNotes : releaseName,
+        detail: 'A new version is being downloaded.'
+    }
+    // dialog.showMessageBox(dialogOpts, (response) => {
+
+    // });
 });
 
 autoUpdater.on('update-downloaded', () => {
-    log.info('update-downloaded');
+    // log.info('update-downloaded');
     mainWindow.webContents.send('update_downloaded');
+    const dialogOpts = {
+        type: 'info',
+        buttons: ['Restart', 'Later'],
+        title: 'Application Update',
+        message: process.platform === 'win32' ? releaseNotes : releaseName,
+        detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+    };
+    dialog.showMessageBox(dialogOpts).then((returnValue) => {
+        if (returnValue.response === 0) autoUpdater.quitAndInstall()
+    })
 });
 
 autoUpdater.on("update-not-available", () => {
     log.info('update-not-available');
 });
 
-ipcMain.on('restart_app', () => {
-    log.info('restart_app');
-    autoUpdater.quitAndInstall();
-});
+// ipcMain.on('restart_app', () => {
+//     log.info('restart_app');
+//     autoUpdater.quitAndInstall();
+// });
 
 autoUpdater.on("error", (err) => {
     log.info('error' + err);
