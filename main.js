@@ -4,8 +4,7 @@ const {
     BrowserWindow,
     Menu,
     app,
-    ipcMain,
-    dialog
+    ipcMain
 } = require('electron');
 const contextMenu = require('electron-context-menu');
 const debug = require('electron-debug');
