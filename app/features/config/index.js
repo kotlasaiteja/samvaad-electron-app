@@ -13,7 +13,7 @@ export default {
     /**
      * Application name.
      */
-     appName: 'Samvaad Pro 2.4.0',
+     appName: 'Samvaad Pro 2.5.0',
 
      /**
       * Home page URL.
