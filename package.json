@@ -22,7 +22,7 @@
     "generateUpdatesFilesForAllChannels": true,
     "afterSign": "./notarize.js",
     "releaseInfo": {
-      "releaseNotesFile": "public/release-notes.md"
+      "releaseNotesFile": "./release-notes.md"
     },
     "files": [
       "build",
