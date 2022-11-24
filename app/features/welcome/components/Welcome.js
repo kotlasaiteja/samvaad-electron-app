@@ -188,9 +188,9 @@ class Welcome extends Component<Props, State> {
                     </div>
                 </div>
                 <div className="column" onClick={() => { this.setState({ isLoading: !this.state.isLoading }), this._renderHomePage() }} style={{ cursor: 'pointer', display: 'block', float: 'left', width: '25%', padding: '0 10px' }}>
-                    <div className="card" style={{ backgroundColor: '#f77933', borderRadius: '1rem', boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)', padding: '90px 25px', textAlign: 'center' }}>
+                    {/* <div className="card" style={{ backgroundColor: '#f77933', borderRadius: '1rem', boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)', padding: '90px 25px', textAlign: 'center' }}>
                         <h2 style={{ color: '#ffffff' }}>Schedule a Meeting</h2>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         )
