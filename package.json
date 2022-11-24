@@ -1,6 +1,6 @@
 {
   "name": "samvaad-meet-electron",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "Electron application for Samvaad Pro",
   "main": "./build/main.js",
   "productName": "Samvaad Pro",
@@ -21,9 +21,6 @@
     "productName": "Samvaad Pro",
     "generateUpdatesFilesForAllChannels": true,
     "afterSign": "./notarize.js",
-    "releaseInfo": {
-      "releaseNotesFile": "./release-notes.md"
-    },
     "files": [
       "build",
       "resources",
@@ -92,7 +89,7 @@
       ]
     },
     "win": {
-      "artifactName": "samvaad-pro 2.3.0.${ext}",
+      "artifactName": "samvaad-pro 2.4.0.${ext}",
       "target": [
         {
           "arch": [
