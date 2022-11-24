@@ -18,7 +18,6 @@ import { Navbar } from '../../navbar';
 import { Onboarding, startOnboarding } from '../../onboarding';
 import { RecentList } from '../../recent-list';
 import { createConferenceObjectFromURL } from '../../utils';
-
 import { Body, FieldWrapper, Form, Header, Label, Wrapper } from '../styled';
 import Spinner from '@atlaskit/spinner/dist/cjs/Spinner';
 import config from "../../config";
