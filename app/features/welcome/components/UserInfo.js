@@ -138,30 +138,30 @@ class UserInfo extends Component<Props, State> {
 
     componentDidMount() {
         window.jitsiNodeAPI.ipc.send("ready-to-join");
-
-        GET_VERSION(config.appVersion.replace(' - V', '')).then(data => {
-            if (data.data) {
-                let versionChanged = data.data.active;
-                versionChanged && confirmAlert({
-                    title: 'Version Updates',
-                    // message: 'latest version is available, please download',
-                    message: <div style={{ marginTop: '10px', fontSize: '1rem' }}>After downloading, please uninstall the current version before installing the downloaded one.</div>,
-                    overlayClassName: "overlay-custom-class-name",
-                    closeOnEscape: false,
-                    closeOnClickOutside: false,
-                    buttons: [
-                        {
-                            label: 'Download',
-                            onClick: () => this.downloadApplication()
-                        },
-                        {
-                            label: 'Cancel',
-                            onClick: () => console.log('clicked Cancel')
-                        }
-                    ]
-                });
-            }
-        });
+        //auto updates implimented, so commented the below code
+        // GET_VERSION(config.appVersion.replace(' - V', '')).then(data => {
+        //     if (data.data) {
+        //         let versionChanged = data.data.active;
+        //         versionChanged && confirmAlert({
+        //             title: 'Version Updates',
+        //             // message: 'latest version is available, please download',
+        //             message: <div style={{ marginTop: '10px', fontSize: '1rem' }}>After downloading, please uninstall the current version before installing the downloaded one.</div>,
+        //             overlayClassName: "overlay-custom-class-name",
+        //             closeOnEscape: false,
+        //             closeOnClickOutside: false,
+        //             buttons: [
+        //                 {
+        //                     label: 'Download',
+        //                     onClick: () => this.downloadApplication()
+        //                 },
+        //                 {
+        //                     label: 'Cancel',
+        //                     onClick: () => console.log('clicked Cancel')
+        //                 }
+        //             ]
+        //         });
+        //     }
+        // });
     }
 
     _onFormSubmit: (*) => void;
@@ -346,8 +346,8 @@ class UserInfo extends Component<Props, State> {
         const isModerator = ["host", "teacher"].includes(participantData.role.toLowerCase());
         let startTime = participantData.startTime;
         let endTime = participantData.endTime;
-        
-        if(participantData.zoneId){
+
+        if (participantData.zoneId) {
             startTime = moment(participantData.startTimeWithTimeZone).format("LT");
             endTime = moment(participantData.endTimeWithTimeZone).format("LT");
         }
