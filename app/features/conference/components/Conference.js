@@ -209,6 +209,7 @@ class Conference extends Component<Props, State> {
             breakoutRoomsList,
             isEnabledParticipantAudioControl,
             permissions,
+            numberOfModerators,
             saveRecordingsLocally } = this.props._participantData;
 
         // override both old and new prejoin config options,
@@ -240,7 +241,9 @@ class Conference extends Component<Props, State> {
             isBreakoutRoomsCreated: isBreakoutRoomsCreated,
             breakoutRoomsList: breakoutRoomsList,
             permissionList: permissions,
-            isSaveRecordingsLocally: saveRecordingsLocally
+            isSaveRecordingsLocally: saveRecordingsLocally,
+            numberOfModerators: numberOfModerators
+            
         };
 
         Object.entries(hashParameters).forEach(([key, value]) => {
