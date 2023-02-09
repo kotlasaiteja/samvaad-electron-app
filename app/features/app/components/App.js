@@ -11,7 +11,7 @@ import { Conference } from '../../conference';
 import config from '../../config';
 import { history } from '../../router';
 import { createConferenceObjectFromURL } from '../../utils';
-import { SET_JOINED_USING_MEETING_LINK, SET_MEETING_URL, Welcome } from '../../welcome';
+import { SET_JOINED_USING_MEETING_LINK, SET_MEDIA_DATA, SET_MEETING_URL, Welcome, } from '../../welcome';
 import { toast, ToastContainer } from "react-toastify";
 import { ADD, setBaseURL } from '../../dhanush/services';
 import UserInfo from '../../welcome/components/UserInfo';
@@ -46,6 +46,7 @@ class App extends Component<*> {
 
         // send notification to main process
         window.jitsiNodeAPI.ipc.send('renderer-ready');
+        // this._listenOnProtocolMessages('', 'https://dev.samvaad.pro/aar/BXjgo-1675852250098_eyJzdGFydFdpdGhWaWRlb011dGVkIjp0cnVlLCJzdGFydFdpdGhBdWRpb011dGVkIjp0cnVlfQ?V=1675753740897')
     }
 
     /**
@@ -74,6 +75,17 @@ class App extends Component<*> {
      * @returns {void}
      */
     _listenOnProtocolMessages(event, inputURL: string) {
+        // console.log(inputURL,'++++++++++start+++++++inputURL+++++++++++');
+        if (inputURL.includes('_')) {
+            let mediaData = JSON.parse(atob(inputURL.split('_')[1].split('?')[0]));
+            this.props.dispatch({
+                type: SET_MEDIA_DATA,
+                mediaData: mediaData,
+            });
+            // console.log(mediaData, '-------------------mediaData');
+            inputURL = inputURL.split('_')[0] + '?' + inputURL.split('_')[1].split('?')[1]
+            // console.log(inputURL, '============if=======inputURL');
+        }
 
         this.props.dispatch({
             type: SET_JOINED_USING_MEETING_LINK,
@@ -106,8 +118,8 @@ class App extends Component<*> {
         });
         this.props.dispatch(push("/"));
 
-        if (participantName.toLowerCase() == "me")
-            setParticipantNameError("This is not a valid User Name");
+        // if (participantName.toLowerCase() == "me")
+        //     setParticipantNameError("This is not a valid User Name");
 
         // const conference = createConferenceObjectFromURL(inputURL);
 

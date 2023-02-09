@@ -211,7 +211,8 @@ class Conference extends Component<Props, State> {
             permissions,
             numberOfModerators,
             saveRecordingsLocally } = this.props._participantData;
-
+        const { startWithAudioMuted, startWithVideoMuted } = this.props._mediaData;
+        
         // override both old and new prejoin config options,
         // old one for servers that do not understand the new option yet
         // and new one for newly setup servers where the new option overrides
@@ -222,8 +223,8 @@ class Conference extends Component<Props, State> {
             prejoinConfig: {
                 enabled: false
             },
-            startWithAudioMuted: true,
-            startWithVideoMuted: true,
+            startWithAudioMuted: startWithAudioMuted,
+            startWithVideoMuted: startWithVideoMuted,
             externalUserId: externalUserId,
             attendanceCourceScheduleID: attendanceCourceScheduleID,
             tenantCode: tenantCode,
@@ -243,7 +244,7 @@ class Conference extends Component<Props, State> {
             permissionList: permissions,
             isSaveRecordingsLocally: saveRecordingsLocally,
             numberOfModerators: numberOfModerators
-            
+
         };
 
         Object.entries(hashParameters).forEach(([key, value]) => {
@@ -368,7 +369,8 @@ function _mapStateToProps(state: Object) {
         _serverURL: state.settings.serverURL,
         _serverTimeout: state.settings.serverTimeout,
         _userDetails: state.welcome.userDetails,
-        _participantData: state.welcome.participantData
+        _participantData: state.welcome.participantData,
+        _mediaData: state.welcome.mediaData
     };
 }
 

@@ -1,7 +1,7 @@
 // @flow
 
 import {
-    SET_MEETING_PARTICIPANT_DETAILS, SET_USER_DETAILS, SET_MEETING_URL, SET_JOINED_USING_MEETING_LINK
+    SET_MEETING_PARTICIPANT_DETAILS, SET_USER_DETAILS, SET_MEETING_URL, SET_JOINED_USING_MEETING_LINK, SET_MEDIA_DATA
 } from './actionTypes';
 
 type State = {
@@ -9,13 +9,18 @@ type State = {
     userDetails: Object,
     meetingURL: String,
     isJoinedUsingMeetLink: Boolean,
+    mediaData: Object,
 };
 
 const DEFAULT_STATE = {
     participantData: {},
     userDetails: {},
     meetingURL: '',
-    isJoinedUsingMeetLink: false
+    isJoinedUsingMeetLink: false,
+    mediaData: {
+        startWithAudioMuted: true,
+        startWithVideoMuted: true,
+    }
 };
 
 /**
@@ -46,6 +51,11 @@ export default (state: State = DEFAULT_STATE, action: Object) => {
             return {
                 ...state,
                 isJoinedUsingMeetLink: action.isJoinedUsingMeetLink
+            };
+        case SET_MEDIA_DATA:
+            return {
+                ...state,
+                mediaData: action.mediaData
             };
 
         default:
