@@ -209,10 +209,10 @@ class Conference extends Component<Props, State> {
             breakoutRoomsList,
             isEnabledParticipantAudioControl,
             permissions,
-            numberOfModerators,
+            numberOfModerators, isRJB,
             saveRecordingsLocally } = this.props._participantData;
         const { startWithAudioMuted, startWithVideoMuted } = this.props._mediaData;
-        
+
         // override both old and new prejoin config options,
         // old one for servers that do not understand the new option yet
         // and new one for newly setup servers where the new option overrides
@@ -243,8 +243,9 @@ class Conference extends Component<Props, State> {
             breakoutRoomsList: breakoutRoomsList,
             permissionList: permissions,
             isSaveRecordingsLocally: saveRecordingsLocally,
-            numberOfModerators: numberOfModerators
-
+            numberOfModerators: numberOfModerators,
+            isRJB: isRJB,
+            logoURL: isRJB ? 'https://srjbtk.samvaadpro.com/assets/proui/images/RJB_Logo.png' : './images/SamvaadPro.svg',
         };
 
         Object.entries(hashParameters).forEach(([key, value]) => {

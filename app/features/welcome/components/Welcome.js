@@ -344,7 +344,8 @@ class Welcome extends Component<Props, State> {
             isEnabledParticipantAudioControl: participantData.isEnabledParticipantAudioControl || false,
             permissions: participantData.permissionList,
             saveRecordingsLocally: participantData.isSaveRecordingsLocally,
-            numberOfModerators: participantData.numberOfModerators
+            numberOfModerators: participantData.numberOfModerators,
+            isRJB: participantData.isRJB
         };
         this.props.dispatch({
             type: SET_MEETING_PARTICIPANT_DETAILS,

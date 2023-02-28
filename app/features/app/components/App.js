@@ -47,6 +47,7 @@ class App extends Component<*> {
         // send notification to main process
         window.jitsiNodeAPI.ipc.send('renderer-ready');
         // this._listenOnProtocolMessages('', 'https://dev.samvaad.pro/aar/BXjgo-1675852250098_eyJzdGFydFdpdGhWaWRlb011dGVkIjp0cnVlLCJzdGFydFdpdGhBdWRpb011dGVkIjp0cnVlfQ?V=1675753740897')
+        // this._listenOnProtocolMessages('', 'https://dev.samvaad.pro/aar/c1BXp-1677570630676')
     }
 
     /**
