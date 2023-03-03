@@ -1,6 +1,6 @@
 {
   "name": "samvaad-meet-electron",
-  "version": "3.1.3",
+  "version": "3.1.4",
   "description": "Electron application for Samvaad Pro",
   "main": "./build/main.js",
   "productName": "Samvaad Pro",
@@ -9,8 +9,9 @@
     "clean": "rm -rf node_modules build dist",
     "lint": "eslint . && flow",
     "postinstall": "patch-package && electron-builder install-app-deps",
+    "dist": "npm run build && electron-builder",
+    "build": "webpack --config ./webpack.main.js --mode production && webpack --config ./webpack.renderer.js --mode production",
     "watch": "webpack --config ./webpack.renderer.js --mode development --watch --watch-options-poll=1000",
-    "build": "electron-builder build --win --publish never",
     "deploy": "electron-builder build --win --publish always"
   },
   "engines": {
@@ -89,7 +90,7 @@
       ]
     },
     "win": {
-      "artifactName": "samvaad-pro-3.1.3.${ext}",
+      "artifactName": "samvaad-pro-3.1.4.${ext}",
       "target": [
         {
           "arch": [

@@ -398,7 +398,7 @@ class Welcome extends Component<Props, State> {
 
         return (
             <div>
-                <img src={image_banner} style={{ paddingTop: '2%', height: "100px" }} />
+                <img src={image_banner} style={{ paddingTop: '2%', height: "100px", width: '15%' }} />
                 <Header style={{ justifyContent: 'center' }}>
                     <SpotlightTarget name='conference-url'>
                         <Form onSubmit={this._onFormSubmit}>

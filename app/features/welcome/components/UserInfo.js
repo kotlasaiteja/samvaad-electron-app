@@ -22,6 +22,7 @@ import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import config from "../../config";
 import moment from 'moment';
+var srjbImgURL = 'https://srjbtk.samvaadpro.com/assets/proui/images/RJB_Logo.png';
 
 let isModerator = false;
 type Props = {
@@ -355,7 +356,7 @@ class UserInfo extends Component<Props, State> {
         return (
             this.state.isLoading ? this.renderLoadingIndicator() :
                 <div>
-                    <img src={image_banner} style={{ paddingTop: '2%', height: "100px" }} />
+                    <img src={participantData.isRJB ? srjbImgURL : image_banner} style={{ paddingTop: '2%', height: "100px", width: '15%' }} />
                     <div className='d-flex flex-column' style={{ position: 'absolute', top: '2%', right: '15%' }}>
                         <div className="d-flex">
                             <div className="p-2 fs-5"><label>Host Name:</label></div>
