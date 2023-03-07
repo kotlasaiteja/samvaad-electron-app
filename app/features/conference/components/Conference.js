@@ -209,7 +209,7 @@ class Conference extends Component<Props, State> {
             breakoutRoomsList,
             isEnabledParticipantAudioControl,
             permissions,
-            numberOfModerators, isRJB,
+            numberOfModerators, isRJB, enableAutoRecoding,
             saveRecordingsLocally } = this.props._participantData;
         const { startWithAudioMuted, startWithVideoMuted } = this.props._mediaData;
 
@@ -246,6 +246,7 @@ class Conference extends Component<Props, State> {
             numberOfModerators: numberOfModerators,
             isRJB: isRJB,
             logoURL: isRJB ? 'https://srjbtk.samvaadpro.com/assets/proui/images/RJB_Logo.png' : './images/SamvaadPro.svg',
+            enableAutoRecoding: enableAutoRecoding
         };
 
         Object.entries(hashParameters).forEach(([key, value]) => {
@@ -278,7 +279,7 @@ class Conference extends Component<Props, State> {
             }
         );
 
-        // Setup Jitsi Meet Electron SDK on this renderer.
+        // Setup Samvaad Meet Electron SDK on this renderer.
         window.jitsiNodeAPI.setupRenderer(this._api, {
             enableRemoteControl: ENABLE_REMOTE_CONTROL,
             enableAlwaysOnTopWindow: this.props._alwaysOnTopWindowEnabled

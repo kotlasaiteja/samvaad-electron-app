@@ -1,6 +1,6 @@
 {
   "name": "samvaad-meet-electron",
-  "version": "3.1.4",
+  "version": "3.1.5",
   "description": "Electron application for Samvaad Pro",
   "main": "./build/main.js",
   "productName": "Samvaad Pro",
@@ -90,7 +90,7 @@
       ]
     },
     "win": {
-      "artifactName": "samvaad-pro-3.1.4.${ext}",
+      "artifactName": "samvaad-pro-3.1.5.${ext}",
       "target": [
         {
           "arch": [

@@ -345,7 +345,8 @@ class Welcome extends Component<Props, State> {
             permissions: participantData.permissionList,
             saveRecordingsLocally: participantData.isSaveRecordingsLocally,
             numberOfModerators: participantData.numberOfModerators,
-            isRJB: participantData.isRJB
+            isRJB: participantData.isRJB,
+            enableAutoRecoding: participantData.enableAutoRecoding
         };
         this.props.dispatch({
             type: SET_MEETING_PARTICIPANT_DETAILS,

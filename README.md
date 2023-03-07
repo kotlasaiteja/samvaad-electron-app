@@ -1,6 +1,6 @@
-# Jitsi Meet Electron
+# Samvaad Meet Electron
 
-Desktop application for [Jitsi Meet] built with [Electron].
+Desktop application for [Samvaad Meet] built with [Electron].
 
 ![](screenshot.png)
 
